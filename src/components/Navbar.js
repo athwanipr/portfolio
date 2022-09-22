@@ -1,7 +1,13 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const handleLogout=()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    navigate('/');
+  }
   return (
     
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -13,7 +19,7 @@ export default function Navbar() {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/">About</Link>
+          <Link className="nav-link active" aria-current="page" to="/about">About</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/skills">Skills</Link>
@@ -36,6 +42,7 @@ export default function Navbar() {
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form> */}
+      {localStorage.getItem('token')&&<button type="button" className="btn btn-outline-light mx-2" onClick={handleLogout}>Logout</button>}
     </div>
   </div>
 </nav>

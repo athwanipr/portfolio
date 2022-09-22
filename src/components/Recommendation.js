@@ -1,6 +1,16 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function Recommendation() {
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+        navigate('/')
+    }  // eslint-disable-next-line
+    // else
+    //     showProfile();
+}, [])
   return (
     <div>
         <nav class="navbar navbar-light bg-light my-2">

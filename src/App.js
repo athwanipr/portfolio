@@ -6,6 +6,8 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Skills from './components/Skills';
 import Recommendation from './components/Recommendation';
+import Login from './components/Login';
+
 
 import {
   BrowserRouter,
@@ -21,7 +23,9 @@ function App() {
       <div className="container">
         <Routes>
           
-          <Route exact path="/" element={<About />}>
+          <Route exact path="/" element={<Login />}>
+          </Route>
+          <Route exact path="/about" element={<About />}>
           </Route>
           <Route exact path="/skills" element={<Skills />}>
           </Route>
@@ -31,6 +35,8 @@ function App() {
           </Route>
           <Route exact path="/recommendation" element={<Recommendation />}>
           </Route>
+          
+
         </Routes>
       
     </div>

@@ -1,7 +1,17 @@
-import React from 'react'
-import resume from '../'
+import React,{useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Contact() {
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+        navigate('/')
+    }  // eslint-disable-next-line
+    // else
+    //     showProfile();
+}, [])
   return (
     <div className="card text-bg-light mb-3 my-3" style={{width: "30rem"}}>
   <div className="card-header"><h5>Contact Me</h5></div>

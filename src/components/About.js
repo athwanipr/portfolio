@@ -1,7 +1,16 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import myphoto from '../image/myphoto.jpg'
+import { useNavigate } from 'react-router-dom';
 
 export default function About() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+        navigate('/')
+    }  // eslint-disable-next-line
+    // else
+    //     showProfile();
+}, [])
   return (
     <div className = "container mx-2">
        
@@ -20,6 +29,26 @@ export default function About() {
   <p className="card-text">
     Hi folks !! My name is Priyanka Athwani. I am working as an Assistant Engineer in Electricity Department of Uttar Pradesh precisely known as UPPCL.
   </p>
+
+  <table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Otto</td>
+    </tr>
+    
+    
+  </tbody>
+</table>
+
   <p className="card-text">
   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae inventore ut pariatur laboriosam expedita accusamus accusantium, dolor aperiam minima atque commodi eius quasi similique, error porro illum nostrum facere. Quisquam accusantium id distinctio suscipit similique asperiores vitae dolores, perferendis, rerum autem quidem ab, debitis enim dolore. Adipisci voluptatem voluptas vel pariatur explicabo inventore suscipit voluptatum corrupti, officiis reprehenderit, sequi maiores delectus sunt minus ab aperiam at tenetur fugiat quis quas excepturi eos. Laborum illo voluptatum consequuntur nam possimus quisquam quae ipsam animi ex, nisi ullam culpa cumque, quaerat, odio quo dicta eos necessitatibus.
   </p>
