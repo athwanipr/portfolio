@@ -1,6 +1,7 @@
 const express=require('express');
 const router = express.Router();
 const User = require('../model/User')
+
 const bcrypt = require('bcryptjs');
 
 
@@ -72,5 +73,21 @@ async (req, res) => {
         res.status(500).json({code:3,msg:"Internal Server Error"});
     }
 });
+
+//ROUTE 3: Get logged in user details using : Get "api/user/getuser"  require auth
+router.get('/getuser',fetchuser,
+    async (req, res) => {
+        try {
+            const mobileno = 9453234077;
+            let user = await User.findOne({mobileno}).select("-password");
+            res.json(user);
+            
+        }
+        catch (error) {
+            res.status(500).json({msg:"Internal Server Error"});
+        }
+    });
+
+   
 
 module.exports = router;

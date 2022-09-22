@@ -29,9 +29,13 @@ const userSchema = mongoose.Schema({
         type:String,
         default:"http://localhost:8080/upload/employeeImage.png"
     },
+    address:{
+        type:String
+    },
     about:{
         type:String,
     }
+
     
     
 })

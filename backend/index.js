@@ -20,6 +20,8 @@ app.listen(PORT,()=>{       //Required to start backend sever at a particular po
 
 //Available Routes
 app.use('/api/user',require('./routes/user'));
+app.use('/api/recommendation',require('./routes/recommendation'));
+app.use('/api/job',require('./routes/job'));
 
 
 module.exports=app;
